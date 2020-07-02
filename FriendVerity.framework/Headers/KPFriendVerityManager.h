@@ -19,7 +19,7 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 @property (nonatomic ,copy) NSString *currentUserId;
 
-@property (nonatomic ,copy) NSString *verityType;//验证业务类型
+@property (nonatomic ,copy) NSString *serviceType;//验证业务类型
 
 + (instancetype)shareInstance;
 
