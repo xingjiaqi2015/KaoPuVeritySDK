@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>云宝宝内部系统导航</title>
+</head>
+
+<body>
+<input id="code" name="autoCode" type="text" placeholder="  请输入code" value=""  style="width:90%;height:32px;border-style:solid "/>
+<div style="padding: 10px;" onclick="open1()">授权</div>
+<button onclick="location.reload()">刷新</button>
+
+  
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<script src="https://file.cloudbae.cn:39400/api/v1/file/hybrid/hybrid-bridge-2.0.0-alpha.6.js"></script>
+<script>
+    eruda.init();
+    cloudbae.hybridBridge.debug = true;
+    function open() {
+    let clientId = 'qwzPEz43Z4gYSAIRK8rq';
+        console.log('start...');
+    return cloudbae.hybridBridge.user.authorization(clientId)
+      .then(result => {
+        
+        return Promise.resolve(result)
+      }).catch(err => {
+        console.log("云宝宝调用失败", JSON.stringify(err));
+      })
+  }
+
+  function open1() {
+    
+    open().then((res) => {
+        window.webkit.messageHandlers.JSBridge.postMessage(res.code);
+        console.log(res);
+                
+                
+    })
+    var u = navigator.userAgent;
+    // 安卓
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+    // IOS
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+    if(isAndroid){
+    　　alert('Android');
+    }else if(isiOS){
+    　　var name = document.getElementById("code").value
+       window.webkit.messageHandlers.JSBridge.postMessage(name);
+
+    }
+  }
+  
+</script>
+
+

@@ -99,6 +99,10 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startCommunityManager;
 
+//授权并进入社区管理模块
+
+- (void)startAuthorizeToCommunityManager;
+
 @end
 
 NS_ASSUME_NONNULL_END
