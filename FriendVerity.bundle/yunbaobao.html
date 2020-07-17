@@ -8,9 +8,9 @@
 </head>
 
 <body>
-<input id="code" name="autoCode" type="text" placeholder="  请输入code" value=""
-       style="width:90%;height:32px;border-style:solid "/>
-<div style="padding: 10px;" onclick="open1()">授权</div>
+<!--<input id="code" name="autoCode" type="text" placeholder="  请输入code" value=""-->
+<!--       style="width:90%;height:32px;border-style:solid "/>-->
+<!--<div style="padding: 10px;" onclick="open1()">授权</div>-->
 <!--<button onclick="location.reload()">刷新</button>-->
 
 </body>
@@ -60,11 +60,12 @@
         var data = name;
         dsBridge.call("testSyn", data)
     }else if(isiOS){
-    　　var name = document.getElementById("code").value
-       window.webkit.messageHandlers.JSBridge.postMessage(name);
+    　　 //var name = document.getElementById("code").value
+        let code  = '35b68282cfcc9e51262f58017ecfc3c0';
+        window.webkit.messageHandlers.JSBridge.postMessage(code);
     }
   }
-window.onload=open1;
+  window.onload=open1;
 </script>
 
 
