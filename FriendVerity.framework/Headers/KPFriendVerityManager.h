@@ -103,6 +103,11 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startAuthorizeToCommunityManager;
 
+
+//处理消息推送
+
+- (void)processingNotice:(id)notice;
+
 @end
 
 NS_ASSUME_NONNULL_END
