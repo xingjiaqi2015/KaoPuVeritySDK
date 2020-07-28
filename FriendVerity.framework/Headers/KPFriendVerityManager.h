@@ -104,13 +104,13 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 - (void)startAuthorizeToCommunityManager;
 
 
-//获取code并进入社区管理模块
+/// 进入社区管理模块
+/// @param code 不可空参数，授权后获取的code
+/// @param notice 推送消息内容，可以为nil
 
-- (void)startAuthorizeToCommunityManagerWithCode:(NSString*)code;
+- (void)startAuthorizeToCommunityManagerWithCode:(NSString*)code
+                                          notice:(NSDictionary*)notice;
 
-//处理消息推送
-
-- (void)processingNotice:(id)notice;
 
 @end
 
