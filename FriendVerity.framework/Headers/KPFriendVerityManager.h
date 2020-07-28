@@ -104,6 +104,10 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 - (void)startAuthorizeToCommunityManager;
 
 
+//获取code并进入社区管理模块
+
+- (void)startAuthorizeToCommunityManagerWithCode:(NSString*)code;
+
 //处理消息推送
 
 - (void)processingNotice:(id)notice;
