@@ -21,11 +21,15 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 @property (nonatomic ,copy) NSString *serviceType;//验证业务类型
 
+@property (nonatomic ,copy) NSString *loginStatus;//是否登录
+
 + (instancetype)shareInstance;
 
 //验证结果回调block
 
 @property (nonatomic ,strong) FriendVerityBlock resultBlock;
+
+
 
 /// SDK初始化
 /// @param userId 当前登录用户的用户id
@@ -99,18 +103,25 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startCommunityManager;
 
-//授权并进入社区管理模块
 
-- (void)startAuthorizeToCommunityManager;
+/// 解析推送信息
+/// @param notice 不可空参数，点击推送后获取的推送信息的notice
 
+- (void)processingNotice:(NSDictionary*)notice;
 
 /// 进入社区管理模块
 /// @param code 不可空参数，授权后获取的code
-/// @param notice 推送消息内容，可以为nil
 
-- (void)startAuthorizeToCommunityManagerWithCode:(NSString*)code
-                                          notice:(NSDictionary*)notice;
+- (void)startAuthorizeToCommunityManagerWithCode:(NSString*)code;
 
+//退出登录
+
+- (void)loginOut;
+
+///处理前台获取的推送推送信息
+/// @param pushMsg 不可空参数，前台获取的推送推送信息
+
+- (void)handlePushMsgOnForegroundWithPushMsg:(NSDictionary*)pushMsg;
 
 @end
 
