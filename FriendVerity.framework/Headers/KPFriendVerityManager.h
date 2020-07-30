@@ -123,6 +123,10 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)handlePushMsgOnForegroundWithPushMsg:(NSDictionary*)pushMsg;
 
+//授权并进入社区管理模块
+
+- (void)startAuthorizeToCommunityManager;
+
 @end
 
 NS_ASSUME_NONNULL_END
