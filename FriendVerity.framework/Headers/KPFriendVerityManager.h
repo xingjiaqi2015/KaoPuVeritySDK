@@ -63,6 +63,12 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)uploadContactSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
+
+
+/// 获取用户资料
+
+- (void)getUserInfoWithUserId:(NSString*)userId success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
+
 /// 上传头像
 /// @param image 头像image对象
 /// @param success 成功回调
@@ -126,6 +132,9 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 //授权并进入社区管理模块
 
 - (void)startAuthorizeToCommunityManager;
+
+
+
 
 @end
 
