@@ -64,6 +64,7 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 - (void)uploadContactSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
 
 
+- (void)uploadNewContact;
 
 /// 获取用户资料
 
