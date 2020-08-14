@@ -27,7 +27,7 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 //验证结果回调block
 
-@property (nonatomic ,strong) FriendVerityBlock resultBlock;
+@property (nonatomic ,strong) FriendVerityBlock _Nullable resultBlock;
 
 
 
@@ -134,7 +134,7 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startAuthorizeToCommunityManager;
 
-
+- (void)testPushMsgOnForeground;
 
 
 @end
