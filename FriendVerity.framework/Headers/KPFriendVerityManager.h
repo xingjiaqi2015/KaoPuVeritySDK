@@ -21,6 +21,8 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 @property (nonatomic ,copy) NSString *serviceType;//验证业务类型
 
+@property (nonatomic ,copy) NSString *isVerityForScan;//是否扫码验证
+
 @property (nonatomic ,copy) NSString *loginStatus;//是否登录
 
 + (instancetype)shareInstance;
