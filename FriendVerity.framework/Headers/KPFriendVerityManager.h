@@ -68,6 +68,10 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)uploadNewContact;
 
+- (void)uploadContactWithUserId:(NSString*)userId;
+
+- (void)clearCache;
+
 /// 获取用户资料
 
 - (void)getUserInfoWithUserId:(NSString*)userId success:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
@@ -97,6 +101,8 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startFriendVerity;
 
+- (void)startFriendVerityWithUserId:(NSString*)userId;
+
 /// 选择参与验证的好友
 
 - (void)settingVerityList;
@@ -112,6 +118,7 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startCommunityManager;
 
+- (void)startAuthorizeToCommunityManagerWithPhoneNumber:(NSString*)phoneNumber avatar:(NSString*)avatar realName:(NSString*)realName userId:(NSString*)userId tokenId:(NSString*)tokenId deviceType:(NSString*)deviceType gender:(NSString*)gender;
 
 /// 解析推送信息
 /// @param notice 不可空参数，点击推送后获取的推送信息的notice
@@ -137,7 +144,6 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 - (void)startAuthorizeToCommunityManager;
 
 - (void)testPushMsgOnForeground;
-
 
 @end
 
