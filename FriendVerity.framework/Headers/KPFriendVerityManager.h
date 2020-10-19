@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 //info 包含两个keyvalue ,verityType验证业务类型 callBackInfo:头像URL
 typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
+typedef void(^FriendVerityStartBlock)(BOOL success);
+
+typedef void(^FriendVerityEndBlock)(BOOL success);
+
 @interface KPFriendVerityManager : NSObject
 
 @property (nonatomic ,copy) NSString *currentUserId;
@@ -25,13 +29,17 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 @property (nonatomic ,copy) NSString *loginStatus;//是否登录
 
+@property (nonatomic ,copy) NSString *tokenid;
+
 + (instancetype)shareInstance;
 
 //验证结果回调block
 
 @property (nonatomic ,strong) FriendVerityBlock _Nullable resultBlock;
 
+@property (nonatomic ,strong) FriendVerityStartBlock _Nullable startBlock;
 
+@property (nonatomic ,strong) FriendVerityEndBlock _Nullable endBlock;
 
 /// SDK初始化
 /// @param userId 当前登录用户的用户id
@@ -64,7 +72,6 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 /// 上传通讯录
 
 - (void)uploadContactSuccess:(void (^)(id response))success failure:(void (^)(NSError *error))failure;
-
 
 - (void)uploadNewContact;
 
@@ -111,6 +118,10 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)helpFriendVerity;
 
+- (void)helpFriendVerityWithUserId:(NSString *)userId;
+
+- (void)startHelpFriendVerityWithUserId:(NSString *)userId taskId:(NSString*)taskId;
+
 //首次进行好友验证
 - (void)firstFriendVerity;
 
@@ -119,6 +130,8 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 - (void)startCommunityManager;
 
 - (void)startAuthorizeToCommunityManagerWithPhoneNumber:(NSString*)phoneNumber avatar:(NSString*)avatar realName:(NSString*)realName userId:(NSString*)userId tokenId:(NSString*)tokenId deviceType:(NSString*)deviceType gender:(NSString*)gender;
+
+- (void)startAuthorizeToCommunityManagerWithPhoneNumber:(NSString *)phoneNumber avatar:(NSString *)avatar realName:(NSString *)realName userId:(NSString *)userId tokenId:(NSString *)tokenId deviceType:(NSString *)deviceType gender:(NSString *)gender superVc:(UIViewController*)superVc success:(void (^)(id _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure;
 
 /// 解析推送信息
 /// @param notice 不可空参数，点击推送后获取的推送信息的notice
@@ -143,7 +156,9 @@ typedef void(^FriendVerityBlock)(BOOL success , NSDictionary *info);//
 
 - (void)startAuthorizeToCommunityManager;
 
-- (void)testPushMsgOnForeground;
+//处理扫描结果
+
+- (void)handleScannignResult:(NSDictionary*)result;
 
 @end
 
