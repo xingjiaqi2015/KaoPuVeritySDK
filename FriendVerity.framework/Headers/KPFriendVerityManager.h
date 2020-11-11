@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
-
+//test
 
 //success 验证是否成功
 //info 包含两个keyvalue ,verityType验证业务类型 callBackInfo:头像URL
